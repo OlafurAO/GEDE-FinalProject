@@ -596,7 +596,7 @@ MonoBehaviour:
   speed: 1
   moveHorizontalCounter: 0
   moveVerticalCounter: 0
-  code: A
+  code: H
   scanned: 0
   moveRight: 1
   moveLeft: 0
@@ -671,7 +671,7 @@ Transform:
   m_GameObject: {fileID: 27300326}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 11.9, y: 7.67, z: -7.43}
-  m_LocalScale: {x: 0.1, y: 2, z: 4}
+  m_LocalScale: {x: 0.1, y: 2, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 189
@@ -7108,7 +7108,7 @@ Transform:
   m_GameObject: {fileID: 372585363}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 6.9, y: 6.95, z: -5.4}
-  m_LocalScale: {x: 0.1, y: 5, z: 6}
+  m_LocalScale: {x: 0.1, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 186
@@ -21896,7 +21896,7 @@ Transform:
   m_GameObject: {fileID: 1298758906}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0.94, y: 7.67, z: -7.43}
-  m_LocalScale: {x: 0.1, y: 2, z: 4}
+  m_LocalScale: {x: 0.1, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 187
@@ -30405,7 +30405,7 @@ MonoBehaviour:
   speed: 12
   moveHorizontalCounter: 0
   moveVerticalCounter: 0
-  code: H
+  code: A
   scanned: 0
   moveRight: 1
   moveLeft: 0
@@ -30480,7 +30480,7 @@ Transform:
   m_GameObject: {fileID: 1755393900}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -4.18, y: 3.9, z: -5.4}
-  m_LocalScale: {x: 0.1, y: 5, z: 6}
+  m_LocalScale: {x: 0.1, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 188
