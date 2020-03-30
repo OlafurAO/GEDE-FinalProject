@@ -19,8 +19,8 @@ public class PlayerController : MonoBehaviour
     bool playing = false; 
 
     public List<GameObject> wave1 = new List<GameObject>();
-    public List<GameObject> wave1 = new List<GameObject>();
-    public List<GameObject> wave1 = new List<GameObject>();
+    public List<GameObject> wave2 = new List<GameObject>();
+    public List<GameObject> wave3 = new List<GameObject>();
 
 
     // Start is called before the first frame update
@@ -35,7 +35,9 @@ public class PlayerController : MonoBehaviour
         gameObjects = GameObject.FindGameObjectsWithTag("Enemy");
         if(curr_position == 0 && playing == false)
         {
-            fill_enemies(wave1); 
+            fill_enemies(wave1);
+            curr_position = 1;
+            playing = true; 
         }
              if (gameObjects.Length == 0)
             {
@@ -51,7 +53,7 @@ public class PlayerController : MonoBehaviour
     void move_player(Vector3 location){
         if(location == controller.transform.position)
         {
-            fill_enemies();
+            fill_enemies(wave1);
         };
         //speed to walk to location 
         float step = speed * Time.deltaTime;
@@ -59,7 +61,7 @@ public class PlayerController : MonoBehaviour
         controller.transform.position = Vector3.MoveTowards(controller.transform.position, location, step);
 
     }
-    void fill_enemies()
+    void fill_enemies(List<GameObject> wave)
     {
         int ens = enemies.Count - 1;
         float x_pos = controller.transform.position.x;
@@ -72,7 +74,7 @@ public class PlayerController : MonoBehaviour
             temp_enemy.active = true; 
             Instantiate(temp_enemy,new  Vector3(x_pos-50, y_pos, z_pos-50), Quaternion.identity);
             Destroy(enemies[rand]);
-            enemies.Add(temp_enemy);
+            wave.Add(temp_enemy);
         }
     }
 }
