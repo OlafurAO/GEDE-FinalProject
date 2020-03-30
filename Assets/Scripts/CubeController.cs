@@ -26,7 +26,6 @@ public class CubeController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.active = false;
     }
 
     // Update is called once per frame
@@ -41,6 +40,7 @@ public class CubeController : MonoBehaviour
             if (Input.inputString.Trim() == code)
             {
                 scanned = true;
+                //Destroy(gameObject);
                 gameObject.active = false; 
             }
         }
