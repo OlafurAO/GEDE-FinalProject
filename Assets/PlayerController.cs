@@ -9,17 +9,18 @@ public class PlayerController : MonoBehaviour
 
     public List<GameObject> enemies;
     public GameObject[] gameObjects;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         enemies = new List<GameObject>();
-        gameObjects = GameObject.FindGameObjectsWithTag("Enemy");
     }
 
     // Update is called once per frame
     void Update()
     {
+        gameObjects = GameObject.FindGameObjectsWithTag("Enemy");
         /*
         if(Input.anyKeyDown)
         {
@@ -38,11 +39,23 @@ public class PlayerController : MonoBehaviour
         }
         */
 
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+        float x = 10; //Input.GetAxis("Horizontal");
+        float z = 0;//Input.GetAxis("Vertical");
 
-        Vector3 move = transform.right * x + transform.forward * z;
+         if (gameObjects.Length == 0)
+        {
+            //location 
+            Vector3 target = new Vector3(10, 4, 0);
+            move_player(target);
+        }
 
-        controller.Move(move * speed * Time.deltaTime); ;
+    }
+
+    void move_player(Vector3 location){
+            //speed to walk to location 
+            float step = speed * Time.deltaTime;
+            //moving to that specific location 
+            controller.transform.position = Vector3.MoveTowards(controller.transform.position, location, step);
+
     }
 }
