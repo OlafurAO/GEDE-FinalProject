@@ -18,10 +18,6 @@ public class CubeController : MonoBehaviour
     public bool moveUp = false;
     public bool moveDown = false;
 
-    public float x_pos = controller.transform.position.x;
-    public float y_pos = controller.transform.position.y;
-    public float z_pos = controller.transform.position.z;
-
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +37,7 @@ public class CubeController : MonoBehaviour
             {
                 scanned = true;
                 //Destroy(gameObject);
-                gameObject.active = false; 
+                gameObject.SetActive(false); 
             }
         }
 

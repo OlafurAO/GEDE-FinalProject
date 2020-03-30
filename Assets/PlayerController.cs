@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
 
     int curr_position = 0;
     bool playing = false;
+    bool isMoving = false; 
 
     public List<GameObject> curr_wave; 
     public List<GameObject> wave1 = new List<GameObject>();
@@ -43,18 +44,31 @@ public class PlayerController : MonoBehaviour
         //gameObjects = GameObject.FindGameObjectsWithTag("Enemy");
         //gameObjects = currVave Enemies
         //strax og gameObjects eru 0. þá fer í næsta location og næsta wave 
-        if (clear())
+        if (clear() && isMoving == false)
         {
             // nr hvaða possition playerinn á að vera í
-            curr_position ++;
+            if(curr_position <= 3)
+            {
+                curr_position ++;
+            }
+            else
+            {
+                curr_position = 0;
+            }
             // fill gameObjects with new wave enemies 
             change_currWave();
         }
-        if(controller.transform.position == locations[curr_position])
+        if(controller.transform.position != locations[curr_position])
         {
+            isMoving = true;
            move_player();
 
         }
+        else
+        {
+            isMoving = false; 
+        }
+
     }
 
 
@@ -78,7 +92,7 @@ public class PlayerController : MonoBehaviour
         {
             int rand = Random.Range(0, ens);
             GameObject temp_enemy = enemies[rand];
-            temp_enemy.active = false; 
+            temp_enemy.SetActive(false); 
             GameObject new_enemy = Instantiate(temp_enemy,new  Vector3(x_pos + 10, y_pos, z_pos+20), Quaternion.identity);
             //Destroy(enemies[rand]);
             wave.Add(new_enemy);
@@ -99,7 +113,7 @@ public class PlayerController : MonoBehaviour
         }
         foreach (GameObject box in curr_wave)
         {
-            box.active = true;
+            box.SetActive(true);
         }
     }
     
@@ -107,7 +121,7 @@ public class PlayerController : MonoBehaviour
     {
         foreach (GameObject box in curr_wave)
         {
-            if(box.active = true)
+            if(box.active == true)
             {
                 return false; 
             }
