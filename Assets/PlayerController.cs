@@ -7,55 +7,72 @@ public class PlayerController : MonoBehaviour
     public CharacterController controller;
     public float speed = 12f;
 
-    public List<GameObject> enemies;
+    public List<GameObject> enemies = new List<GameObject>();
     public GameObject[] gameObjects;
-    
+
+    Vector3 position0 = new Vector3(10, 4, 0);
+    Vector3 position1 = new Vector3(10, 4, 0);
+    Vector3 position2 = new Vector3(15, 4, 0);
+    Vector3 position3 = new Vector3(20, 4, 0);
+
+    int curr_position = 0;
+    bool playing = false; 
+
+    public List<GameObject> wave1 = new List<GameObject>();
+    public List<GameObject> wave1 = new List<GameObject>();
+    public List<GameObject> wave1 = new List<GameObject>();
+
 
     // Start is called before the first frame update
     void Start()
     {
-        enemies = new List<GameObject>();
+        gameObjects = GameObject.FindGameObjectsWithTag("Enemy");
     }
 
     // Update is called once per frame
     void Update()
     {
         gameObjects = GameObject.FindGameObjectsWithTag("Enemy");
-        /*
-        if(Input.anyKeyDown)
+        if(curr_position == 0 && playing == false)
         {
-            foreach (var enemy in gameObjects)
+            fill_enemies(wave1); 
+        }
+             if (gameObjects.Length == 0)
             {
-                Debug.LogWarning("BAM");
-
-                var cubeControllerScript = enemy.GetComponent<CubeController>();
-                Debug.LogWarning(cubeControllerScript.code);
-
-                if (Input.inputString == cubeControllerScript.code)
-                {
-                    cubeControllerScript.scanned = true;
-                }
+                //location 
+                Vector3 target = new Vector3(10, 4, 0);
+                move_player(target);
             }
-        }
-        */
 
-        float x = 10; //Input.GetAxis("Horizontal");
-        float z = 0;//Input.GetAxis("Vertical");
 
-         if (gameObjects.Length == 0)
-        {
-            //location 
-            Vector3 target = new Vector3(10, 4, 0);
-            move_player(target);
-        }
 
     }
 
     void move_player(Vector3 location){
-            //speed to walk to location 
-            float step = speed * Time.deltaTime;
-            //moving to that specific location 
-            controller.transform.position = Vector3.MoveTowards(controller.transform.position, location, step);
+        if(location == controller.transform.position)
+        {
+            fill_enemies();
+        };
+        //speed to walk to location 
+        float step = speed * Time.deltaTime;
+        //moving to that specific location 
+        controller.transform.position = Vector3.MoveTowards(controller.transform.position, location, step);
 
+    }
+    void fill_enemies()
+    {
+        int ens = enemies.Count - 1;
+        float x_pos = controller.transform.position.x;
+        float y_pos = controller.transform.position.y;
+        float z_pos = controller.transform.position.z;
+        for(int nr_enemies= 0; nr_enemies < 5; nr_enemies++)
+        {
+            int rand = Random.Range(0, ens);
+            GameObject temp_enemy = enemies[rand];
+            temp_enemy.active = true; 
+            Instantiate(temp_enemy,new  Vector3(x_pos-50, y_pos, z_pos-50), Quaternion.identity);
+            Destroy(enemies[rand]);
+            enemies.Add(temp_enemy);
+        }
     }
 }

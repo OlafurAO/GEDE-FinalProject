@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CubeController : MonoBehaviour
 {
-    public CharacterController controller;
+    public static CharacterController controller;
     public float speed = 1f;
 
     public int moveHorizontalCounter = 0;
@@ -18,10 +18,15 @@ public class CubeController : MonoBehaviour
     public bool moveUp = false;
     public bool moveDown = false;
 
+    public float x_pos = controller.transform.position.x;
+    public float y_pos = controller.transform.position.y;
+    public float z_pos = controller.transform.position.z;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameObject.active = false;
     }
 
     // Update is called once per frame
@@ -36,7 +41,7 @@ public class CubeController : MonoBehaviour
             if (Input.inputString.Trim() == code)
             {
                 scanned = true;
-                Destroy(gameObject);
+                gameObject.active = false; 
             }
         }
 
