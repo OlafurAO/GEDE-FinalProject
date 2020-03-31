@@ -5,6 +5,7 @@ using UnityEngine;
 public class CubeController : MonoBehaviour
 {
     public CharacterController controller;
+    public GameObject playerScore;
     public float speed = 1f;
 
     public int moveHorizontalCounter = 0;
@@ -13,7 +14,9 @@ public class CubeController : MonoBehaviour
     public string code;
     public bool scanned = false;
 
-    public bool moveRight = true;
+    public bool isEnemy;
+
+    public bool moveRight = false;
     public bool moveLeft = false;
     public bool moveUp = false;
     public bool moveDown = false;
@@ -21,7 +24,7 @@ public class CubeController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -35,6 +38,14 @@ public class CubeController : MonoBehaviour
 
             if (Input.inputString.Trim() == code)
             {
+                if(isEnemy)
+                {
+                    playerScore.GetComponent<PlayerScore>().IncreaseScore();
+                }
+                else
+                {
+                    playerScore.GetComponent<PlayerScore>().DecreaseScore();
+                }
                 scanned = true;
                 Destroy(gameObject);
             }
