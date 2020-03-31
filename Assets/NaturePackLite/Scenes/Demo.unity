@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657832, g: 0.4964118, b: 0.57481754, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.4964124, b: 0.5748179, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -562,7 +562,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!143 &27300327
 CharacterController:
   m_ObjectHideFlags: 0
@@ -605,7 +605,6 @@ MonoBehaviour:
   moveLeft: 0
   moveUp: 0
   moveDown: 0
-  deathSFX: {fileID: 236755936}
 --- !u!65 &27300329
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12902,8 +12901,8 @@ GameObject:
   - component: {fileID: 710488844}
   - component: {fileID: 710488843}
   m_Layer: 5
-  m_Name: ScoreText
-  m_TagString: Untagged
+  m_Name: FINAL_SCORE
+  m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12924,8 +12923,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 97.9, y: -26.3}
-  m_SizeDelta: {x: 159, y: 30}
+  m_AnchoredPosition: {x: 160, y: -40}
+  m_SizeDelta: {x: 300, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &710488843
 MonoBehaviour:
@@ -12961,11 +12960,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 27
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 2
-    m_MaxSize: 40
+    m_MinSize: 0
+    m_MaxSize: 230
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -22138,7 +22137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!143 &1298758907
 CharacterController:
   m_ObjectHideFlags: 0
@@ -22169,7 +22168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1232fb038cd59fb479188e311a60d116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 1298758907}
+  controller: {fileID: 1755393901}
   playerScore: {fileID: 710488841}
   speed: 1
   moveHorizontalCounter: 0
@@ -22181,7 +22180,6 @@ MonoBehaviour:
   moveLeft: 0
   moveUp: 0
   moveDown: 0
-  deathSFX: {fileID: 236755936}
 --- !u!65 &1298758909
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23431,7 +23429,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1357635666}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.534, y: -1.2, z: 9.128}
+  m_LocalPosition: {x: 1.53, y: 4, z: -7.94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1652002970}
@@ -28812,8 +28810,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 1652002968}
   speed: 12
-  enemies: []
+  enemies:
+  - {fileID: 1755393900}
+  - {fileID: 27300326}
+  friends:
+  - {fileID: 1298758906}
+  friends2: []
   gameObjects: []
+  curr_wave: []
+  wave1: []
+  wave2: []
+  wave3: []
+  locations: []
+  enemie_locations: []
 --- !u!4 &1652002970
 Transform:
   m_ObjectHideFlags: 0
@@ -28821,14 +28830,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1652002967}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.88, y: 4.0305862, z: -26.984028}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 7, y: 4, z: -27}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1357635667}
   m_Father: {fileID: 0}
   m_RootOrder: 186
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1001 &1652830388
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30725,7 +30734,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!143 &1755393901
 CharacterController:
   m_ObjectHideFlags: 0
@@ -30768,7 +30777,6 @@ MonoBehaviour:
   moveLeft: 0
   moveUp: 0
   moveDown: 0
-  deathSFX: {fileID: 236755936}
 --- !u!65 &1755393903
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -4,12 +4,8 @@ using UnityEngine;
 
 public class CubeController : MonoBehaviour
 {
-<<<<<<< HEAD
-    public static CharacterController controller;
-=======
-    public CharacterController controller;
+    public  CharacterController controller;
     public GameObject playerScore;
->>>>>>> f2f6544d50671aa9526af4aaf2488ae7ddc69781
     public float speed = 1f;
 
     public int moveHorizontalCounter = 0;
